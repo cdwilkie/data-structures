@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cstdlib>
+#include <cstdint>
 
 
 class DynamicArray {
@@ -14,7 +14,7 @@ class DynamicArray {
    private:
       int32_t capacity;
       int32_t size;
-      // Pointer to data
+      int32_t* data;
    
 
 
