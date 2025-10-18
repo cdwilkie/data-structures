@@ -1,19 +1,21 @@
 #pragma once
 
-#include <cstdint>
+#include <cstdlib>
 
 
 class DynamicArray {
 
    public:
       DynamicArray();
-      int32_t getCapacity() const;
-      int32_t getSize() const;
+      ~DynamicArray();
+      size_t getCapacity() const;
+      size_t getSize() const;
+      int32_t& operator[](size_t index);
 
 
    private:
-      int32_t capacity;
-      int32_t size;
+      size_t capacity;
+      size_t size;
       int32_t* data;
    
 
