@@ -1,4 +1,4 @@
-#include "./include/dynamic_array.h"
+#include "../include/dynamic_array.h"
 
 DynamicArray::DynamicArray()
    : capacity(0), size(0), data(nullptr) {
