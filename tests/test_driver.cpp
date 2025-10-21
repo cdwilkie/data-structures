@@ -1,12 +1,9 @@
 #include "../include/dynamic_array.h"
 
 #include <iostream>
-#include <fstream>
-#include <cassert>
-#include <vector>
 
 /* Displays a green pass or red fail to terminal
-* based on assert test
+* based on test condition
 */
 void printScore(bool testCondition, const std::string testName) {
    if (testCondition) {
@@ -17,72 +14,57 @@ void printScore(bool testCondition, const std::string testName) {
    }
 }//end printScore()
 
+
+
 //-----------------------
 // Unit Tests
 void constructorTest() {
+   std::string testGroup = "Default Constructor";
    DynamicArray array;
 
-   std::string testName = "Default Constructor Size Test";
+   std::string subTest = "Size Test";
+   std::string testName = testGroup + " - " + subTest;
    bool currentTest = (array.getSize() == 0);
    printScore(currentTest, testName);
 
-   testName = "Default Constructor Capacity Test";
+   subTest = "Capacity Test";
+   testName = testGroup + " - " + subTest;
    currentTest = (array.getCapacity() == 0);
    printScore(currentTest, testName);
 }//end constructorTest()
 
 void resizeTest() {
+   std::string testGroup = "Resize";
    DynamicArray array;
-   array.pushBack(0);
+   array.pushBack(1);
 
-   std::string testName = "Resize Array Test: 1";
+   std::string subTest = "Size Test: 1";
+   std::string testName = testGroup + " - " + subTest;
    bool currentTest = (array.getSize() == 1);
    printScore(currentTest, testName);
+   printScore(array.getCapacity() == 1, "Capacity Test: 1");
 
-   array.pushBack(10);
-   testName = "Resize Array Test: 2";
+   subTest = "Size Test: 2";
+   testName = testGroup + " - " + subTest;
+   array.pushBack(2);
    currentTest = (array.getSize() == 2);
    printScore(currentTest, testName);
+   printScore(array.getCapacity() == 2, "Capacity Test: 2");
 
+   subTest = "Size Test: 10";
+   testName = testGroup + " - " + subTest;
    DynamicArray array2;
    for (int32_t i = 0; i < 10; ++i) {
       array2.pushBack(i);
    }
-   testName = "Resize Array Test: 10";
    currentTest = (array2.getSize() == 10);
    printScore(currentTest, testName);
-}
-
-int main(int argc, char** argv) {
-
-   /*
-   std::cout << "Loading Test Framework...\n";
-   std::string fileName = 
-         (argc < 2) ? "testData.txt" : argv[1];
-   std::ifstream testFile(fileName);
-   if (!testFile.is_open()) {
-      std::cout << "Error loading framework. Aborted\n" << std::endl;
-      return 1;
-   }
-
-   std::cout << "Building Test Framework...\n";
-   std::vector<std::string> testList;
-   std::string testItem;
-   while(std::getline(testFile, testItem)) {
-      testList.push_back(testItem);
-   }
+   printScore(array2.getCapacity() == 16, "Capacity Test: 16");
+}//end resizeTest()
 
 
-   std::cout << "Running Test Framework...\n";
-    
-   DynamicArray testArray;
-   while (testList.size() > 0) {
-      switch
-   }
 
-   std::cout << "All testing has concluded.\n";
-   */
-
+int main() {
 
    constructorTest();
    resizeTest();
