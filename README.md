@@ -6,11 +6,11 @@
 
 ### Dynamic Array
    - Should behave like vector.
-      - Push
-      - Pop
-      - Insert
-      - Remove
-      - Resize
-      - [] Indexing
-      - GetSize
-      - GetCapacity
+      - [ ] Push
+      - [ ] Pop
+      - [ ] Insert
+      - [ ] Remove
+      - [ ] Resize
+      - [x] [] Indexing
+      - [x] GetSize
+      - [x] GetCapacity
