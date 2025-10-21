@@ -17,6 +17,8 @@ void printScore(bool testCondition, const std::string testName) {
    }
 }//end printScore()
 
+//-----------------------
+// Unit Tests
 void constructorTest() {
    DynamicArray array;
 
@@ -26,6 +28,28 @@ void constructorTest() {
 
    testName = "Default Constructor Capacity Test";
    currentTest = (array.getCapacity() == 0);
+   printScore(currentTest, testName);
+}//end constructorTest()
+
+void resizeTest() {
+   DynamicArray array;
+   array.pushBack(0);
+
+   std::string testName = "Resize Array Test: 1";
+   bool currentTest = (array.getSize() == 1);
+   printScore(currentTest, testName);
+
+   array.pushBack(10);
+   testName = "Resize Array Test: 2";
+   currentTest = (array.getSize() == 2);
+   printScore(currentTest, testName);
+
+   DynamicArray array2;
+   for (int32_t i = 0; i < 10; ++i) {
+      array2.pushBack(i);
+   }
+   testName = "Resize Array Test: 10";
+   currentTest = (array2.getSize() == 10);
    printScore(currentTest, testName);
 }
 
@@ -61,5 +85,6 @@ int main(int argc, char** argv) {
 
 
    constructorTest();
+   resizeTest();
    return 0;
 }
