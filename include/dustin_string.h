@@ -1,3 +1,4 @@
+#pragma once
 // Headers
 #include <cstdlib>
 
@@ -6,14 +7,17 @@
 class DustinString {
    public:
       DustinString();
+      DustinString(const char* arr);
       ~DustinString();
-      size_t getSize() const;
+      size_t length;
       size_t getCapacity() const;
       char& operator[](size_t index);
 
    private:
-      size_t size;
       size_t capacity;
       char* data;
+
       void resizeArray(size_t newCapacity);
+      void copyArray(const char* arr);
+      size_t findLength(const char* arr);
 };
