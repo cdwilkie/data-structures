@@ -2,3 +2,4 @@
 /.vscode
 tests/tests
 tests/test_driver
+tests/stringTest
