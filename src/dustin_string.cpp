@@ -10,9 +10,10 @@ DustinString::DustinString(const char* arr) {
    length = findLength(arr);
    capacity = length + 1;
    data = new char[capacity];
-   for (size_t i = 0; i < length; ++i) {
+   for (size_t i = 0; i < capacity; ++i) {
       data[i] = arr[i];
    }
+
    }
 }
 
@@ -27,7 +28,7 @@ size_t DustinString::getCapacity() const {
 }
 
 char& DustinString::operator[](size_t index) {
-   if (index < length && index >= 0) {
+   if (index < capacity && index >= 0) {
       return data[index];
    }
    else {
@@ -40,14 +41,10 @@ void DustinString::resizeArray(size_t newCapacity) {
 }
 
 size_t DustinString::findLength(const char* arr) {
-   // Assume no string longer than 30 chars
+   // Assumes all string literals are null terminated '\0'
    size_t length = 0;
    while (arr[length] != '\0') {
       ++length;
-      if (length > 30) {
-         length = -1;
-         break;
-      }
    }
    return length;
 }
@@ -59,6 +56,7 @@ void DustinString::copyArray(const char* arr) {
       for (size_t i = 0; i < arrLength; ++i) {
          newString[i] = arr[i];
       }
+      newString[arrLength] = '\0';
       delete[] data;
       data = newString;
    }
