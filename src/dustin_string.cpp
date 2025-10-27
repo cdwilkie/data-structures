@@ -1,4 +1,5 @@
 #include "../include/dustin_string.h"
+#include <iostream>
 
 DustinString::DustinString()
    : length(0), capacity(0), data(nullptr) {
@@ -6,13 +7,13 @@ DustinString::DustinString()
 
 /* Constructor expects null terminated string
 */
-DustinString::DustinString(const char* arr) {
-   if (arr) {
-      length = findLength(arr);
+DustinString::DustinString(const char* charArr) {
+   if (charArr) {
+      length = findLength(charArr);
       capacity = length + 1;
       data = new char[capacity];
       for (size_t i = 0; i < capacity; ++i) {
-         data[i] = arr[i];
+         data[i] = charArr[i];
       }//end for copy data
    }//end if arr
 }//end DustinString()
@@ -28,12 +29,13 @@ size_t DustinString::getCapacity() const {
 }
 
 char& DustinString::operator[](size_t index) {
-   if (index < capacity && index >= 0) {
-      return data[index];
-   }
-   else {
+   
+   if (index >= length) {
       throw "Index out of bounds";
    }
+   return data[index];
+   
+   
 }
 
 void DustinString::resizeArray(size_t newCapacity) {
