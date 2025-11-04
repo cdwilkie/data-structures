@@ -28,6 +28,10 @@ size_t DustinString::getCapacity() const {
    return capacity;
 }
 
+size_t DustinString::getLength() const { 
+   return length;
+}
+
 char& DustinString::operator[](size_t index) {
    
    if (index >= length) {

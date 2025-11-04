@@ -10,14 +10,14 @@ class DustinString {
       DustinString(const char* arr);
       ~DustinString();
       size_t getCapacity() const;
-      size_t length() const;
+      size_t getLength() const;
       char& operator[](size_t index);
 
    private:
       size_t capacity;
-      char* data;
       size_t length;
-
+      char* data;
+      
       void resizeArray(size_t newCapacity);
       void copyArray(const char* arr);
       size_t findLength(const char* arr);

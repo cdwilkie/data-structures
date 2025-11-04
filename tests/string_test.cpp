@@ -16,21 +16,21 @@ void printScore(bool testCondition, const std::string testName) {
 void constructorTest() {
    DustinString newString;
 
-   printScore(newString.length() == 0, "Constructor Test");
+   printScore(newString.getLength() == 0, "Constructor Test");
    printScore(newString.getCapacity() == 0, "Capacity Test");
 
    DustinString newString2 = DustinString("Hello");
-   printScore(newString2.length() == 5, "Constructor Test 2");
+   printScore(newString2.getLength() == 5, "Constructor Test 2");
    printScore(newString2.getCapacity() == 6, "Capacity Test 2");
 
    DustinString newString3 = DustinString(" ");
-   printScore(newString3[newString3.length()] == '\0', "Constructor Test 3");
+   printScore(newString3[newString3.getLength()] == '\0', "Constructor Test 3");
 
    const char* dustinPtr = "GothamCity";
    DustinString newString4 = DustinString(dustinPtr);
-   printScore(newString4.length() == 10, "Constructor Test 4");
+   printScore(newString4.getLength() == 10, "Constructor Test 4");
    printScore(newString4.getCapacity() == 11, "Capacity Test 4");
-   printScore(newString4[newString4.length()] == '\0', "Copy Test 4");
+   printScore(newString4[newString4.getLength()] == '\0', "Copy Test 4");
 }
 
 int main() {
