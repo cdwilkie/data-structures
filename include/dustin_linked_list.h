@@ -6,9 +6,15 @@ class DustinLinkedList {
 
    public:
       DustinLinkedList();
-      DustinLinkedList(const DustinLinkedList& copy);
-      DustinLinkedList(const T[]& copy);
+      //DustinLinkedList(const T& newData);
       ~DustinLinkedList();
+
+      Node* getHead() const;
+      Node* getTail() const;
+
+      void insertData(const T& newData);
+      void removeData();
+      T getData();
 
    private:
 
@@ -20,6 +26,8 @@ class DustinLinkedList {
 
       Node* headNode;
       Node* tailNode;
+
+   
 
 
 };
