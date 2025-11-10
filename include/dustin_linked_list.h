@@ -7,7 +7,6 @@ template <typename T>
 class DustinLinkedList {
 
    private:
-
       struct Node {
          Node* nextNode;
          Node* prevNode;
