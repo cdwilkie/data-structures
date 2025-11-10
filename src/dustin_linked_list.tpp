@@ -17,29 +17,43 @@ DustinLinkedList<T>::~DustinLinkedList() {
 template <typename T>
 void DustinLinkedList<T>::pushBack(const T& newData) {
     Node* newNode = new Node(newData);
-    tailNode -> nextNode = newNode;
-    newNode -> prevNode = tailNode;
-    tailNode = newNode;
+    if (tailNode == nullptr && headNode == nullptr) {
+        headNode = newNode;
+        tailNode = newNode;
+    }
+    else {
+        tailNode -> nextNode = newNode;
+        newNode -> prevNode = tailNode;
+        tailNode = newNode;
+    }
     currentSize++;
 }
 
 template <typename T>
 void DustinLinkedList<T>::pushFront(const T& newData) {
     Node* newNode = new Node(newData);
-    headNode -> prevNode = newNode;
-    newNode -> nextNode = headNode;
-    headNode = newNode;
+    if (headNode == nullptr && tailNode == nullptr) {
+        headNode = newNode;
+        tailNode = newNode;
+    }
+    else {
+        headNode -> prevNode = newNode;
+        newNode -> nextNode = headNode;
+        headNode = newNode;
+    }
     currentSize++;
 }
 
 template <typename T>
 void DustinLinkedList<T>::deleteList() {
+   
     while (headNode != nullptr) {
         Node* nextNode = headNode -> nextNode;
         delete headNode;
-        currentSize--;
         headNode = nextNode;
+        currentSize--;
     }
+    tailNode = nullptr;
 }
 
 template <typename T>
